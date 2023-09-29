@@ -9,6 +9,13 @@ const emojis = {
     WIN: "🏆",
   };
   const maps = [];
+
+  // The thick character `, allows to represent spaces btw lines without need to put '\n'
+  // Logic behind the map:
+  // Each row is in one Array
+  // Each column is in One array living inside the rows array
+  // So, 3 arrays -> Multidimensional Array
+  
   maps.push(`
     IXXXXXXXXX
     -XXXXXXXXX
