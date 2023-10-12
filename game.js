@@ -23,7 +23,7 @@ function startGame(){
     game.textAlign = 'end';
 
 
-    const map = maps[1];
+    const map = maps[0];
 
 
     // '.Split' breaks down a long string into an array of words.
@@ -33,23 +33,38 @@ function startGame(){
     
     // After separating the array in rows, now separete mapRows for each element
     // in order to have columns in which each character is an individual element.
-    const mapRowColmns = mapRows.map(row => row.trim().split(''))
+                        // roww array will be saving more arrays in order to pass the function .trim and .split
+    const mapRowColmns = mapRows.map(row => row.trim().split(''));
     
     // We can access now to each element through:
     // mapRowColmns[0][2]
     // Now we have access to each of those and we're able to fill the map with the emojis
 
     // In order to draw it 10 times
-    for(let row= 1; row <= 10; row++){
-            for (let col = 1; col <= 10; col++) {
-            // Insert an emoji through picking an Array Element
-                                             // Draw in the X & Y plane by multipliying for col & row
-        game.fillText(emojis[mapRowColmns[row-1][col-1]], elementsSize * col, elementsSize *row );
-        }
+
+    // Instead of the for creation cicle, we're doing another array
+        // SO, for each ARRAY we'll push a piece of code 
+                                // for each row
+    mapRowColmns.forEach(row => {
+        // for each col inside row array
+        row.forEach(col =>{
+            const emoji = (emojis[col]);
+            game.fillText(emoji, x, y);
+        });
+    });
+
+    // for(let row= 1; row <= 10; row++){
+    //         for (let col = 1; col <= 10; col++) {
+    //         // Insert an emoji through picking an Array Element
+    //                                          // Draw in the X & Y plane by multipliying for col & row
+    //     game.fillText(emojis[mapRowColmns[row-1][col-1]], elementsSize * col, elementsSize *row );
+    //     }
 
 
-    }
+    // }
     
+    // Code alternative
+
 
     
 }
