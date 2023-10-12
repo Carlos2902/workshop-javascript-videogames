@@ -23,7 +23,7 @@ function startGame(){
     game.textAlign = 'end';
 
 
-    const map = maps[0];
+    const map = maps[2];
 
 
     // '.Split' breaks down a long string into an array of words.
@@ -45,11 +45,14 @@ function startGame(){
     // Instead of the for creation cicle, we're doing another array
         // SO, for each ARRAY we'll push a piece of code 
                                 // for each row
-    mapRowColmns.forEach(row => {
+    // for each functions allow us to explore the index withing the element
+    mapRowColmns.forEach((row, rowI) => {
         // for each col inside row array
-        row.forEach(col =>{
+        row.forEach((col, colI) =>{
             const emoji = (emojis[col]);
-            game.fillText(emoji, x, y);
+            const positonX = elementsSize * (colI+1);
+            const positionY = elementsSize * (rowI+1);
+            game.fillText(emoji, positonX, positionY);
         });
     });
 
